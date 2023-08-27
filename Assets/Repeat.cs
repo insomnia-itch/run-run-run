@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Repeat : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject gameCamera;
     public float parallax;
     private float width, xPosition;
     // Start is called before the first frame update
@@ -18,8 +18,8 @@ public class Repeat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float parallaxDistance = camera.transform.position.x * parallax;
-        float remainingDistance = camera.transform.position.x * (1 - parallax);
+        float parallaxDistance = gameCamera.transform.position.x * parallax;
+        float remainingDistance = gameCamera.transform.position.x * (1 - parallax);
 
         transform.position = new Vector3(xPosition + parallaxDistance, transform.position.y, transform.position.z);
 

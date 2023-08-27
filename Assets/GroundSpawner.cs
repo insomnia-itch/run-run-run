@@ -20,7 +20,6 @@ public class GroundSpawner : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("should spawn");
             hasGround = false;
         }
     }

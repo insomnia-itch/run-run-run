@@ -12,16 +12,8 @@ public class ObstacleSpawner : MonoBehaviour
         StartCoroutine(SpawnObstacles());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void SpawnObstacle() {
-        Debug.Log("----");
-        Debug.Log(obstacles.Length -1);
-        Debug.Log("----");
         int rand = UnityEngine.Random.Range(0, obstacles.Length -1);
         GameObject obstacleToSpawn = obstacles[rand];
         Vector3 spawnPosition = new Vector3(transform.position.x, -0.4f, 0);
