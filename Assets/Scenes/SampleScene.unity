@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 1502166906}
   - component: {fileID: 1502166905}
   - component: {fileID: 1502166904}
+  - component: {fileID: 1502166909}
   m_Layer: 0
   m_Name: Ground Spawner
   m_TagString: Untagged
@@ -418,6 +419,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502166909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502166903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2608ac121b4b7514f9037801a98bd15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacles:
+  - {fileID: 4978362874158014046, guid: 517b6d81932aeb0418ddcb72bee5104d, type: 3}
 --- !u!1 &1632937891
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,8 +503,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1753344135
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8171a507e7eb20b468eadd6bba84ca34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -623,8 +638,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -980069033
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -664,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d77860c3beca246bfd8dc4ac917e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 1
+  runSpeed: 10
 --- !u!1001 &8553258562158742391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -672,6 +687,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6974461080278012656, guid: e2250b5f3f2548a4d87eb6a386c28dc7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974461080278012656, guid: e2250b5f3f2548a4d87eb6a386c28dc7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1919410621
+      objectReference: {fileID: 0}
     - target: {fileID: 7873662479374175144, guid: e2250b5f3f2548a4d87eb6a386c28dc7, type: 3}
       propertyPath: m_RootOrder
       value: 1
