@@ -30,7 +30,13 @@ public class GroundSpawner : MonoBehaviour
         float[] heights = new float[] {-2, -1.4f, -0.5f};
         GameObject[] grounds = new GameObject[] { ground1, ground2, ground3 };
         GameObject randGround = grounds[rand];
-        Instantiate(randGround, new Vector3(transform.position.x + 3, heights[rand], 0), Quaternion.identity);
+
+        float xOffset = randGround.transform.localScale.x / 2;
+        // The distance (in units) I want the jump to be
+        xOffset += 5; 
+        int currentX = Mathf.FloorToInt(transform.position.x);
+        Vector3 spawnPosition = new Vector3(currentX + xOffset, heights[rand], 0);
+        Instantiate(randGround, spawnPosition, Quaternion.identity);
     }
     // Start is called before the first frame update
     void Start()
