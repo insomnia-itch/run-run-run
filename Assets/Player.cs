@@ -10,6 +10,14 @@ public class Player : MonoBehaviour
     public float jumpForce;
     private bool isGrounded;
     private Animator anim;
+
+
+    public float buttonTime = 0.5f;
+    public float jumpHeight = 5;
+    public float cancelRate = 100;
+    float jumpTime;
+    bool jumping;
+    bool jumpCancelled;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +29,57 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.right * runSpeed * Time.deltaTime + transform.position;
+        // transform.position = Vector3.right * runSpeed * Time.deltaTime + transform.position;
         // TODO need to somehow do the:
         //  jump higher while button is held down thing
-        if (Input.GetButtonDown("Jump") && isGrounded) {
-            rb.AddForce(Vector2.up * jumpForce);
+        // if (Input.GetButtonDown("Jump") && isGrounded) {
+        //     rb.AddForce(Vector2.up * jumpForce);
+        // }
+        Jump();
+        // if (!isGrounded && rb.velocity.y <= 0)
+        // {
+        //     rb.gravityScale = 3f;
+        // } else {
+        //     rb.gravityScale = 1;
+        // }
+    }
+
+    private void FixedUpdate()
+    {
+        if (rb.velocity.x < runSpeed)
+        {
+            rb.AddForce(Vector2.right * runSpeed);
         }
 
-        if (!isGrounded && rb.velocity.y <= 0)
+        if(jumpCancelled && !isGrounded)
         {
-            rb.gravityScale = 3f;
-        } else {
-            rb.gravityScale = 1;
+            rb.AddForce(Vector2.down * cancelRate);
+        }
+    }   
+    
+    void Jump() {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
+            // rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumping = true;
+            jumpCancelled = false;
+            jumpTime = 0;
+        }
+        if (jumping)
+        {
+            jumpTime += Time.deltaTime;
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                jumpCancelled = true;
+            }
+            if (jumpTime > buttonTime)
+            {
+                jumping = false;
+            }
         }
     }
-    
 
     private void OnCollisionEnter2D(Collision2D other)
     {

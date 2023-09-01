@@ -642,7 +642,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502166903}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2608ac121b4b7514f9037801a98bd15e, type: 3}
   m_Name: 
@@ -898,6 +898,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 10
   jumpForce: 380
+  buttonTime: 0.25
+  jumpHeight: 3
+  cancelRate: 100
 --- !u!95 &1683929054
 Animator:
   serializedVersion: 4
