@@ -15,8 +15,7 @@ public class Player : MonoBehaviour
     public float buttonTime = 0.5f;
     public float jumpHeight = 5;
     public float cancelRate = 100;
-    float jumpTime;
-    bool jumping;
+
     bool jumpCancelled;
     // Start is called before the first frame update
     void Start()
@@ -63,21 +62,11 @@ public class Player : MonoBehaviour
             jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
             // rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            jumping = true;
             jumpCancelled = false;
-            jumpTime = 0;
         }
-        if (jumping)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            jumpTime += Time.deltaTime;
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                jumpCancelled = true;
-            }
-            if (jumpTime > buttonTime)
-            {
-                jumping = false;
-            }
+            jumpCancelled = true;
         }
     }
 

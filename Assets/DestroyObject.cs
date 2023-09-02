@@ -8,8 +8,8 @@ public class DestroyObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("colliding...");
-            Debug.Log(other.gameObject);
+            // Debug.Log("colliding...");
+            // Debug.Log(other.gameObject);
         }
         Destroy(other.gameObject);
     }
